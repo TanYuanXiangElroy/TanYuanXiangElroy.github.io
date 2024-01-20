@@ -2,14 +2,13 @@
 layout: about
 title: about
 permalink: /
-subtitle: I live by "show your work" by Austin Kleon and "Live as if you were to die tomorrow; learn as if you were to live forever" by Mahatma Gandhi.
+subtitle: I live by Austin Kleon's 'Show Your Work' and Mahatma Gandhi's 'Live as if you were to die tomorrow; learn as if you were to live forever.
 
 profile:
   align: right
   image: elroy_professional_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Jurong West Central 1</p>
     <p>Singapore</p>
 
 news: false # includes a list of news items
