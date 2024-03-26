@@ -266,7 +266,7 @@ jekyll-archives:
     category: "/blog/category/:name/"
 
 display_tags: ["Summary"] # these tags will be displayed on the front page of your blog
-display_categories: ["cybersecurity", "self improvment", "Business"] # these categories will be displayed on the front page of your blog
+display_categories: ["cybersecurity", "self improvment", "Business","3D printing"] # these categories will be displayed on the front page of your blog
 
 # -----------------------------------------------------------------------------
 # Jekyll Scholar
