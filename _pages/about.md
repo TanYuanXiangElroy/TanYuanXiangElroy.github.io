@@ -11,10 +11,16 @@ profile:
   more_info: >
     <p>Singapore</p>
 
-news: false # includes a list of news items
-latest_posts: true # includes a list of the newest posts
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+
+announcements:
+  enabled: false # includes a list of news items
+
+latest_posts:
+  enabled: true
+  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
+  limit: 3 # leave blank to include all the blog posts
 ---
 
 ***
@@ -33,6 +39,6 @@ Join me as I embark on a mission of personal redevelopment. I'm all about trying
 Currently on a leave of absence, I'm gearing up for the academic challenges at SUTD. Excited to dive into the world of engineering, I'll be documenting not just the coursework but the personal growth that comes with embracing new challenges. It's a unique chapter of preparation and self-discovery before the classroom adventures begin.
 
 ## 💼 Building My Professional Profile
-While this blog is my personal space, you can check out my professional side on [LinkedIn](https://www.linkedin.com/in/tanyuanxiangelroy/). However u can find, you'll find a detailed CV showcasing my skills, projects, and the ongoing saga of personal and professional growth in this website. Let's connect and share insights on the ever-evolving landscapes of IT and engineering!
+While this blog is my personal space, you can check out my professional side on [LinkedIn](https://www.linkedin.com/in/elroytan/). However u can find, you'll find a detailed CV showcasing my skills, projects, and the ongoing saga of personal and professional growth in this website. Let's connect and share insights on the ever-evolving landscapes of IT and engineering!
 
 Thanks for joining me on this rollercoaster ride – from coding marathons to engineering blueprints, it's all part of the adventure. Stick around for the laughs, the challenges, and the triumphs that come with trying something new every day. 🚀
