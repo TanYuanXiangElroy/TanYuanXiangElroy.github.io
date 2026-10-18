@@ -31,30 +31,42 @@
       "location": "Singapore"
     },
     {
-      "name": "Based",
+      "name": "BasedApp",
       "position": "Internship",
       "startDate": "2025-09-01",
       "endDate": "2026-03-31",
-      "highlights": [],
-      "summary": "A hybrid internship in Singapore covering customer service and troubleshooting.",
+      "highlights": [
+        "Engineered a TypeScript MCP (Model Context Protocol) integration with the Hyperliquid API to query public databases and validate on-chain transactions, cutting manual debugging time for user inquiries.",
+        "Led the migration to Intercom, designing automated workflows and AI-triage agents supporting 12,000+ monthly active users and personally resolving 470+ technical incidents a month.",
+        "Managed Discord community security (grew 4,000 to 6,000+ members): deployed anti-phishing bots, audited role permissions, and ran scam incident response.",
+        "Authored the \"Community Response Playbook\" and maintained the official GitBook docs as the single source of truth for the support team.",
+        "Built an internal Telegram + Hyperliquid MCP server (Node.js, TypeScript) with chat allow-listing and secure session management, enabling AI agents to query on-chain positions/order history within API rate limits (1,200 weight/min)."
+      ],
+      "summary": "",
       "location": "Singapore"
     },
     {
-      "name": "National Service",
+      "name": "Singapore Army",
       "position": "Supply Assistant (SA)",
       "startDate": "2023-07-01",
       "endDate": "2025-05-31",
-      "highlights": [],
-      "summary": "National service (career break) as a Supply Assistant (SA) in TRADOC Admin and Logistic Center (TALC).",
+      "highlights": [
+        "Managed TALC (TRADOC Admin and Logistic Center) logistic stores: procurement and maintaining essential stock levels and supplies.",
+        "Volunteered 3+ weeks on attachment to ATEC for Exercise Wallaby (XWB) 2024; awarded the ATEC commander's coin for outstanding service."
+      ],
+      "summary": "",
       "location": "Singapore"
     },
     {
       "name": "Singapore Polytechnic",
-      "position": "Sustainable Mushroom Farming with AIoT Technology project Intern",
-      "startDate": "2022-03-31",
+      "position": "IoT Engineering Internship",
+      "startDate": "2022-02-01",
       "endDate": "2022-08-31",
-      "highlights": [],
-      "summary": "Collaborated with a team of seven to conceptualize and design an autonomous urban farming system dedicated to cultivating mushrooms.\n\n\nTook charge of leading a sub-team of four members in the design phase of a shipping container.\n\n\nThis container was developed to monitor and control growth parameters, optimizing the conditions for an efficient mushroom harvest.\n\n\nConcurrently, held responsibility for overseeing all hardware aspects while integrating software seamlessly into the system.",
+      "highlights": [
+        "Led a team of 3 to build an automated mushroom-farming system, integrating hardware sensors with software monitoring.",
+        "Owned the hardware design and integrated the software into the system."
+      ],
+      "summary": "",
       "url": "https://www.linkedin.com/company/19527",
       "location": "Singapore"
     }
@@ -68,7 +80,11 @@
       "startDate": "2025-05-01",
       "endDate": "2028-04-30",
       "score": "4.12/5.0",
-      "courses": ["Member of SOAR (planning team of SOAR Challenge 2025)", "Member of athletics/running club"]
+      "courses": [
+        "Awarded the SUTD Global Merit Scholarship",
+        "Member of SOAR (planning team of SOAR Challenge 2025)",
+        "Member of athletics/running club"
+      ]
     },
     {
       "institution": "SUTD",
@@ -77,7 +93,11 @@
       "startDate": "2022-09-01",
       "endDate": "2023-07-31",
       "score": "",
-      "courses": ["Active member in student clubs SOAR and MRS", "2023 IC Outreach Line Tracing Workshop (Main Facilitator)"]
+      "courses": [
+        "Active member in student clubs SOAR and MRS",
+        "2023 IC Outreach Line Tracing Workshop (Main Facilitator)",
+        "Learn more about the SP-SUTD Pathway: <a href=\"https://www.scribd.com/document/559013447/sp-sutd-nus\" target=\"_blank\" rel=\"noopener\">SP-SUTD-NUS</a>"
+      ]
     },
     {
       "institution": "Singapore Polytechnic",
@@ -86,7 +106,7 @@
       "startDate": "2020-12-31",
       "endDate": "2023-12-31",
       "score": "3.91",
-      "courses": []
+      "courses": ["Selected for the SP-SUTD Pathway Programme (1 of only 30 students)"]
     },
     {
       "institution": "Hua Yi Secondary School",
