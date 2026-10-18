@@ -80,7 +80,11 @@
       "startDate": "2025-05-01",
       "endDate": "2028-04-30",
       "score": "4.12/5.0",
-      "courses": ["Awarded the SUTD Global Merit Scholarship", "Member of SOAR (planning team of SOAR Challenge 2025)", "Member of athletics/running club"]
+      "courses": [
+        "Awarded the SUTD Global Merit Scholarship",
+        "Member of SOAR (planning team of SOAR Challenge 2025)",
+        "Member of athletics/running club"
+      ]
     },
     {
       "institution": "SUTD",
@@ -89,7 +93,11 @@
       "startDate": "2022-09-01",
       "endDate": "2023-07-31",
       "score": "",
-      "courses": ["Active member in student clubs SOAR and MRS", "2023 IC Outreach Line Tracing Workshop (Main Facilitator)", "Learn more about the SP-SUTD Pathway: <a href=\"https://www.scribd.com/document/559013447/sp-sutd-nus\" target=\"_blank\" rel=\"noopener\">SP-SUTD-NUS</a>"]
+      "courses": [
+        "Active member in student clubs SOAR and MRS",
+        "2023 IC Outreach Line Tracing Workshop (Main Facilitator)",
+        "Learn more about the SP-SUTD Pathway: <a href=\"https://www.scribd.com/document/559013447/sp-sutd-nus\" target=\"_blank\" rel=\"noopener\">SP-SUTD-NUS</a>"
+      ]
     },
     {
       "institution": "Singapore Polytechnic",
