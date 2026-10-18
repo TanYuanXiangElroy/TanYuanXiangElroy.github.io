@@ -1,31 +1,45 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
 // =============================================================================
-// Local override: Apple-style design polish  (USER SITE override, not upstream)
+// Local polish (USER SITE): appended as PLAIN CSS after the gem's @use block.
 // =============================================================================
 //
-// WHY THIS FILE EXISTS / WHY IT IS SANCTIONED
-// -------------------------------------------
-// This is a *user site* created from the al-folio template, so shadowing a
-// gem-owned Sass partial under `_sass/` is explicitly supported. See
-// docs/ARCHITECTURE.md -> "Local overrides: your site vs. this repo":
-//   "In your own site ... local overrides are fully supported. You may shadow
-//    any gem-owned file by adding the same path in your repo —
-//    `_layouts/bib.liquid`, `_includes/repository/repo.liquid`,
-//    `_sass/_variables.scss`, and so on. Your copy wins over the gem's."
-// The `lint:style-contract` check that forbids `_sass/` runs ONLY on the
-// upstream starter: `unit-tests.yml` / `visual-regression.yml` are guarded
-// `if: github.repository == 'alshedivat/al-folio'`, so they are skipped on this
-// fork. Creating `_sass/_variables.scss` here is therefore CI-safe.
-//
-// WHY `_variables.scss` (and not an arbitrary new partial name)
-// -------------------------------------------------------------
-// The gem's main stylesheet only `@import`s a fixed set of partial names. A
-// brand-new partial (e.g. `_custom.scss`) would never be imported and would
-// load as nothing (silent no-op). docs/CUSTOMIZE.md ("Customizing fonts,
-// spacing, and more") names `_sass/_variables.scss` as a honored override entry
-// point, so appending rules here is guaranteed to be picked up. The exact gem
-// `@import` list is NOT vendored on disk, so this import path is only *fully*
-// proven on the deployed preview; if the polish does not appear, confirm the
-// honored partial name via the deployed build and move these rules accordingly.
+// Everything below lives in the user repo's shadowed `assets/css/main.scss`
+// (which wins over the gem's copy). It must stay in PLAIN-CSS context: appended
+// after the last `@use`, so arbitrary CSS rules are legal here — unlike inside
+// a `@use "variables" with (...)` module, which only permits `!default` vars.
 //
 // DESIGN GOALS (polish only — no content/structure changes, fully reversible):
 //   * Instant press feedback (:active scale), snappy ease-out transitions.
@@ -34,12 +48,12 @@
 //   * All colors use al-folio CSS custom properties so light AND dark mode work.
 //   * ALL motion is neutralized under `prefers-reduced-motion: reduce`.
 //
-// Deleting this file fully reverts every change below.
+// Shared tuning tokens (plain SCSS vars, resolved at compile time):
+//   ease   = cubic-bezier(0.22, 0.61, 0.36, 1)  ease-out, approximates a spring
+//   press  = 100ms  instant tactile press feedback
+//   hover  = 160ms  snappy 120–200ms hover/transition window
 // =============================================================================
 
-// -----------------------------------------------------------------------------
-// Shared tuning tokens (kept local to this override; not gem variables)
-// -----------------------------------------------------------------------------
 $polish-ease: cubic-bezier(0.22, 0.61, 0.36, 1); // ease-out, approximates spring
 $polish-press-duration: 100ms; // instant tactile press feedback
 $polish-hover-duration: 160ms; // snappy 120–200ms hover/transition window
