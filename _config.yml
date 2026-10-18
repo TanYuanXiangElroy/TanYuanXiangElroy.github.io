@@ -173,16 +173,27 @@ disqus_shortname: # put your disqus shortname (DEPRECATED - this site uses giscu
 # If you have blog posts published on medium.com or other external sources,
 # you can display them in your blog by adding a link to the RSS feed.
 # Optional: Set default categories and tags for posts from each source.
+# The al_ext_posts plugin (already in the plugins: list below) reads this key and
+# pulls each feed's entries into the blog as synthetic posts at build time.
+# To enable: uncomment one of the entries below and replace rss_url with your real
+# feed URL. Keep real, reachable URLs only; an unreachable rss_url breaks the build.
 external_sources:
+  # - name: Medium
+  #   rss_url: https://medium.com/feed/@your-username
+  #   categories: external # optional default category for pulled posts
+  #   tags: medium # optional default tag for pulled posts
+  # - name: Substack
+  #   rss_url: https://your-publication.substack.com/feed
 
 # -----------------------------------------------------------------------------
 # Newsletter
 # -----------------------------------------------------------------------------
 
 newsletter:
-  enabled: false
-  endpoint: # your loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
-  # https://loops.so/docs/forms/custom-form
+  enabled: true
+  endpoint: # REQUIRED for submissions: paste your Loops endpoint (e.g., https://app.loops.so/api/newsletter-form/YOUR-ENDPOINT)
+  # Create a custom form and copy its endpoint from https://loops.so/docs/forms/custom-form
+  # Until an endpoint is set, the signup form renders but submissions will not be delivered.
 
 # -----------------------------------------------------------------------------
 # Collections
