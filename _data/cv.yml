@@ -1,0 +1,100 @@
+cv:
+  name: Tan Yuan Xiang Elroy
+  email: elroytanyuanxiang@gmail.com
+  phone: tel:+65-8838-5573
+  location: Singapore
+  website: https://TanYuanXiangElroy.github.io/
+  social_networks:
+    - network: LinkedIn
+      username: elroytan
+  sections:
+    summary:
+      - I'm Elroy, a 23-year-old guy on a journey of self-discovery through the exciting worlds of IT and engineering. Currently calling Singapore home, I'm taking a detour from the typical academic path to explore and develop myself before diving into SUTD for a degree.
+    experience:
+      - company: ST Engineering
+        position: Cybersecurity Software Development & Quality Assurance Internship
+        location: Singapore
+        start_date: "2026-08"
+        end_date: "2027-01"
+        highlights:
+          - An on-site cybersecurity software development and quality assurance internship in Singapore.
+      - company: BasedApp
+        position: Internship
+        location: Singapore
+        start_date: "2025-09"
+        end_date: "2026-03"
+        highlights:
+          - Engineered a TypeScript MCP (Model Context Protocol) integration with the Hyperliquid API to query public databases and validate on-chain transactions, cutting manual debugging time for user inquiries.
+          - Led the migration to Intercom, designing automated workflows and AI-triage agents supporting 12,000+ monthly active users and personally resolving 470+ technical incidents a month.
+          - "Managed Discord community security (grew 4,000 to 6,000+ members): deployed anti-phishing bots, audited role permissions, and ran scam incident response."
+          - Authored the "Community Response Playbook" and maintained the official GitBook docs as the single source of truth for the support team.
+          - Built an internal Telegram + Hyperliquid MCP server (Node.js, TypeScript) with chat allow-listing and secure session management, enabling AI agents to query on-chain positions/order history within API rate limits (1,200 weight/min).
+      - company: Singapore Army
+        position: Supply Assistant (SA)
+        location: Singapore
+        start_date: "2023-07"
+        end_date: "2025-05"
+        highlights:
+          - "Managed TALC (TRADOC Admin and Logistic Center) logistic stores: procurement and maintaining essential stock levels and supplies."
+          - Volunteered 3+ weeks on attachment to ATEC for Exercise Wallaby (XWB) 2024; awarded the ATEC commander's coin for outstanding service.
+      - company: Singapore Polytechnic
+        position: IoT Engineering Internship
+        location: Singapore
+        start_date: "2022-02"
+        end_date: "2022-08"
+        highlights:
+          - Led a team of 3 to build an automated mushroom-farming system, integrating hardware sensors with software monitoring.
+          - Owned the hardware design and integrated the software into the system.
+    education:
+      - institution: SUTD
+        area: Computer and Information Systems Security / Information Assurance
+        degree: Bachelor of Engineering (Computer Science and Design)
+        start_date: "2025-05"
+        end_date: "2028-04"
+        highlights:
+          - "GPA: 4.12/5.0"
+          - Awarded the SUTD Global Merit Scholarship
+          - Member of SOAR (planning team of SOAR Challenge 2025)
+          - Member of athletics/running club
+      - institution: SUTD
+        area: SP-SUTD Pathway Programme
+        degree: Degree
+        start_date: "2022-09"
+        end_date: "2023-07"
+        highlights:
+          - Active member in student clubs SOAR and MRS
+          - 2023 IC Outreach Line Tracing Workshop (Main Facilitator)
+          - "Learn more about the SP-SUTD Pathway: [SP-SUTD-NUS](https://www.scribd.com/document/559013447/sp-sutd-nus)"
+      - institution: Singapore Polytechnic
+        area: Computer Engineering
+        degree: Polytechnic Diploma
+        start_date: "2020-12"
+        end_date: "2023-12"
+        highlights:
+          - "GPA: 3.91"
+          - Selected for the SP-SUTD Pathway Programme (1 of only 30 students)
+      - institution: Hua Yi Secondary School
+        area: ""
+        degree: High School Diploma
+        start_date: "2015-12"
+        end_date: "2019-12"
+    awards:
+      - bullet: "Diploma with Merit, Singapore Polytechnic (2023-05): Top 10% of each graduating course cohort."
+    certifications:
+      - bullet: CPR (Hands-Only) + AED Provider, Singapore Red Cross (2021-06 to 2023-06).
+      - bullet: Standard First Aid Provider, Singapore Red Cross (2021-06 to 2023-06).
+      - bullet: "Microsoft Certified: Azure Fundamentals, Microsoft (2021-06)."
+      - bullet: Docker Fundamentals, Dell Technologies (2026-09).
+      - bullet: Google Cybersecurity, Coursera (2024-05).
+      - bullet: CS50 Cybersecurity, CS50 (Harvard) (2024-03).
+    skills:
+      - bullet: Computer Hardware & Software Engineering
+      - bullet: Object-Oriented Programming (OOP)
+      - bullet: "English (Native speaker)"
+      - bullet: C++
+      - bullet: Java
+      - bullet: Python (Programming Language)
+      - bullet: Project Management
+      - bullet: Cybersecurity
+      - bullet: Docker
+      - bullet: Network Security
