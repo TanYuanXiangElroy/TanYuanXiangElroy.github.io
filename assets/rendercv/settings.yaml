@@ -1,6 +1,6 @@
-rendercv_settings:
+settings:
   render_command:
-    output_folder_name: assets/rendercv/rendercv_output
+    output_folder: assets/rendercv/rendercv_output
     pdf_path: assets/rendercv/rendercv_output/Tan_Yuan_Xiang_Elroy_CV.pdf
     dont_generate_html: true
     dont_generate_markdown: true
