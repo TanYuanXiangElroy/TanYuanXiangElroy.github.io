@@ -197,30 +197,17 @@ nav.navbar,
   }
 }
 
-// -----------------------------------------------------------------------------
-// PART 4) HIDE THE SEARCH "Ctrl K / Cmd K" HINT TEXT (keep icon + shortcut)
-// -----------------------------------------------------------------------------
-// There is NO al_search config flag to hide the shortcut hint (docs/CUSTOMIZE.md
-// only documents the shortcut as a feature; no toggle). The al_search / ninja-keys
-// trigger markup is not vendored on disk, so we cannot safely shadow the include
-// without risking the Cmd-K binding. Approach (c): hide ONLY the visible hint
-// text via CSS, leaving the magnifier icon and the keyboard shortcut fully
-// functional. `!important` is required to beat the gem's own rule specificity.
-//
-// NOTE: the exact hint selector must be CONFIRMED on the deployed preview with
-// dev tools. The rule below targets the plausible hint elements (the <kbd>
-// badges inside the search trigger and any shortcut-hint span) WITHOUT touching
-// the icon or the button. If the hint persists after deploy, inspect the live
-// trigger and extend this selector list accordingly.
-.navbar .search-toggle kbd,
-.navbar #search-toggle kbd,
-button.search-toggle kbd,
-.ninja-keys kbd,
-[data-search-hint],
-.search-hint,
-.search-shortcut-hint,
-.kbd-hint {
-  display: none !important;
+// Hide the bare "ctrl k " text node inside the search trigger (#search-toggle),
+// while keeping the magnifier icon visible and the Cmd/Ctrl-K shortcut working.
+// The label is a bare text node in `span.nav-link` (gem header.liquid), not a
+// <kbd>/.hint element, so set the span's font-size to 0 to collapse the text and
+// restore it on the child <i> icon.
+#search-toggle .nav-link {
+  font-size: 0 !important;
+}
+#search-toggle .nav-link i,
+#search-toggle .nav-link .fa-magnifying-glass {
+  font-size: 1rem !important;
 }
 
 // -----------------------------------------------------------------------------
