@@ -1,0 +1,243 @@
+// =============================================================================
+// Local override: Apple-style design polish  (USER SITE override, not upstream)
+// =============================================================================
+//
+// WHY THIS FILE EXISTS / WHY IT IS SANCTIONED
+// -------------------------------------------
+// This is a *user site* created from the al-folio template, so shadowing a
+// gem-owned Sass partial under `_sass/` is explicitly supported. See
+// docs/ARCHITECTURE.md -> "Local overrides: your site vs. this repo":
+//   "In your own site ... local overrides are fully supported. You may shadow
+//    any gem-owned file by adding the same path in your repo —
+//    `_layouts/bib.liquid`, `_includes/repository/repo.liquid`,
+//    `_sass/_variables.scss`, and so on. Your copy wins over the gem's."
+// The `lint:style-contract` check that forbids `_sass/` runs ONLY on the
+// upstream starter: `unit-tests.yml` / `visual-regression.yml` are guarded
+// `if: github.repository == 'alshedivat/al-folio'`, so they are skipped on this
+// fork. Creating `_sass/_variables.scss` here is therefore CI-safe.
+//
+// WHY `_variables.scss` (and not an arbitrary new partial name)
+// -------------------------------------------------------------
+// The gem's main stylesheet only `@import`s a fixed set of partial names. A
+// brand-new partial (e.g. `_custom.scss`) would never be imported and would
+// load as nothing (silent no-op). docs/CUSTOMIZE.md ("Customizing fonts,
+// spacing, and more") names `_sass/_variables.scss` as a honored override entry
+// point, so appending rules here is guaranteed to be picked up. The exact gem
+// `@import` list is NOT vendored on disk, so this import path is only *fully*
+// proven on the deployed preview; if the polish does not appear, confirm the
+// honored partial name via the deployed build and move these rules accordingly.
+//
+// DESIGN GOALS (polish only — no content/structure changes, fully reversible):
+//   * Instant press feedback (:active scale), snappy ease-out transitions.
+//   * Refined typography: optical sizing, tighter heading tracking, comfy body.
+//   * Restraint + depth: whitespace rhythm, softer shadows, navbar translucency.
+//   * All colors use al-folio CSS custom properties so light AND dark mode work.
+//   * ALL motion is neutralized under `prefers-reduced-motion: reduce`.
+//
+// Deleting this file fully reverts every change below.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Shared tuning tokens (kept local to this override; not gem variables)
+// -----------------------------------------------------------------------------
+$polish-ease: cubic-bezier(0.22, 0.61, 0.36, 1); // ease-out, approximates spring
+$polish-press-duration: 100ms; // instant tactile press feedback
+$polish-hover-duration: 160ms; // snappy 120–200ms hover/transition window
+
+// -----------------------------------------------------------------------------
+// 1 + 2) INSTANT PRESS FEEDBACK + SNAPPIER TRANSITIONS
+// Interactive elements get a short ease-out transition and a subtle scale-down
+// on :active for a tactile, "pressed" feel. CSS cannot do true spring physics;
+// a tuned cubic-bezier ease-out approximates it.
+// -----------------------------------------------------------------------------
+a.post-title,
+.post-title a,
+.nav-link,
+.navbar .nav-link,
+.social a,
+.social .contact-icons a,
+.btn,
+button.btn,
+.tag-category-list a,
+.post-tags a,
+a.tag,
+a.category {
+  transition:
+    color $polish-hover-duration $polish-ease,
+    background-color $polish-hover-duration $polish-ease,
+    transform $polish-press-duration $polish-ease,
+    box-shadow $polish-hover-duration $polish-ease;
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
+
+// Theme toggle (sun/moon) — snappy press feedback without altering behavior.
+#light-toggle,
+.theme-toggle,
+#light-toggle-dark,
+#light-toggle-light {
+  transition:
+    color $polish-hover-duration $polish-ease,
+    transform $polish-press-duration $polish-ease;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+// Cards (including hoverable blog/featured cards): snappy lift + press feedback.
+.card,
+.card.hoverable,
+.featured-posts .card.hoverable {
+  transition:
+    transform $polish-hover-duration $polish-ease,
+    box-shadow $polish-hover-duration $polish-ease;
+
+  &:active {
+    transform: scale(0.99);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// 3) TYPOGRAPHY — optical sizing, tighter heading tracking, comfortable body.
+// Uses only safe, additive rules; no font-family or size redesign.
+// -----------------------------------------------------------------------------
+body {
+  font-optical-sizing: auto;
+  line-height: 1.6; // comfortable body rhythm
+}
+
+h1,
+h2,
+h3,
+.post-title,
+.header-bar h1 {
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em; // slightly tighter tracking on large headings
+}
+
+// -----------------------------------------------------------------------------
+// 4) RESTRAINT + DEPTH — whitespace rhythm, softer refined shadows.
+// Colors come from al-folio CSS custom properties so both themes stay correct.
+// -----------------------------------------------------------------------------
+
+// Blog listing (PRIMARY target): a touch more breathing room per entry.
+.post-list {
+  li {
+    margin-bottom: 1.75rem; // more whitespace rhythm between posts
+  }
+
+  .post-meta {
+    color: var(--global-text-color-light, var(--global-text-color));
+    letter-spacing: 0.01em;
+  }
+
+  .post-tags {
+    margin-top: 0.4rem;
+  }
+}
+
+// Header bar (blog + page headers): a little extra vertical rhythm.
+.header-bar {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+// Tag / category chips: subtle rounded surface using theme variables.
+.tag-category-list a,
+.post-tags a {
+  border-radius: 6px;
+}
+
+// Softer, more refined elevation on cards (low-opacity, larger blur).
+// rgba() shadows are intentionally theme-neutral (pure black alpha reads well
+// on both light and dark surfaces); the card background itself uses the theme
+// variable so dark mode remains correct.
+.card,
+.card.hoverable {
+  background-color: var(--global-card-bg-color, var(--global-bg-color));
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card.hoverable:hover {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px); // gentle lift (motion-guarded below)
+}
+
+// Fixed navbar: subtle translucency + backdrop-blur IF a stable selector
+// exists. al-folio's fixed-top navbar is `nav.navbar` / `#navbar`. We layer a
+// translucent theme background with a backdrop blur, and provide a SOLID
+// fallback first so browsers without backdrop-filter still render an opaque bar.
+nav.navbar,
+#navbar {
+  background-color: var(--global-bg-color); // solid fallback (opaque)
+
+  @supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+    // Translucent only where backdrop-filter is supported, so text stays legible.
+    background-color: color-mix(in srgb, var(--global-bg-color) 72%, transparent);
+    -webkit-backdrop-filter: saturate(180%) blur(12px);
+    backdrop-filter: saturate(180%) blur(12px);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// PART 4) HIDE THE SEARCH "Ctrl K / Cmd K" HINT TEXT (keep icon + shortcut)
+// -----------------------------------------------------------------------------
+// There is NO al_search config flag to hide the shortcut hint (docs/CUSTOMIZE.md
+// only documents the shortcut as a feature; no toggle). The al_search / ninja-keys
+// trigger markup is not vendored on disk, so we cannot safely shadow the include
+// without risking the Cmd-K binding. Approach (c): hide ONLY the visible hint
+// text via CSS, leaving the magnifier icon and the keyboard shortcut fully
+// functional. `!important` is required to beat the gem's own rule specificity.
+//
+// NOTE: the exact hint selector must be CONFIRMED on the deployed preview with
+// dev tools. The rule below targets the plausible hint elements (the <kbd>
+// badges inside the search trigger and any shortcut-hint span) WITHOUT touching
+// the icon or the button. If the hint persists after deploy, inspect the live
+// trigger and extend this selector list accordingly.
+.navbar .search-toggle kbd,
+.navbar #search-toggle kbd,
+button.search-toggle kbd,
+.ninja-keys kbd,
+[data-search-hint],
+.search-hint,
+.search-shortcut-hint,
+.kbd-hint {
+  display: none !important;
+}
+
+// -----------------------------------------------------------------------------
+// REDUCED MOTION — neutralize every transform / transition / backdrop animation
+// for users who opt out, while keeping the static improvements (spacing,
+// typography, shadows, translucency) intact.
+// -----------------------------------------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  a.post-title,
+  .post-title a,
+  .nav-link,
+  .navbar .nav-link,
+  .social a,
+  .social .contact-icons a,
+  .btn,
+  button.btn,
+  .tag-category-list a,
+  .post-tags a,
+  a.tag,
+  a.category,
+  #light-toggle,
+  .theme-toggle,
+  #light-toggle-dark,
+  #light-toggle-light,
+  .card,
+  .card.hoverable,
+  .featured-posts .card.hoverable {
+    transition: none !important;
+    transform: none !important;
+  }
+
+  .card.hoverable:hover {
+    transform: none !important;
+  }
+}
