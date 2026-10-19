@@ -22,3 +22,7 @@ design:
   links:
     underline: true
     use_external_link_icon: true
+  templates:
+    education_entry:
+      degree_column: null
+      main_column: "**INSTITUTION**, DEGREE_WITH_AREA\nSUMMARY\nHIGHLIGHTS"
